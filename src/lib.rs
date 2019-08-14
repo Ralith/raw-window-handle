@@ -42,6 +42,7 @@ pub mod windows;
 #[cfg_attr(not(feature = "nightly-docs"), cfg(target_os = "ios"))]
 pub mod ios;
 // pub mod wasm;
+pub mod openxr;
 
 mod platform {
     #[cfg(target_os = "macos")]
@@ -132,6 +133,8 @@ pub enum RawWindowHandle {
     #[cfg_attr(feature = "nightly-docs", doc(cfg(target_os = "windows")))]
     #[cfg_attr(not(feature = "nightly-docs"), cfg(target_os = "windows"))]
     Windows(windows::WindowsHandle),
+
+    OpenXr(openxr::OpenXrHandle),
 
     #[doc(hidden)]
     #[deprecated = "This field is used to ensure that this struct is non-exhaustive, so that it may be extended in the future. Do not refer to this field."]
